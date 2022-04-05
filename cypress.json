@@ -10,5 +10,6 @@
     "workspaceName": "mike-cypress-test",
     "username": "iammikec@gmail.com",
     "password": "mjcTestPassword"
-  }
+  },
+  "reporter": "mochawesome"
 }
