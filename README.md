@@ -39,9 +39,16 @@ The `npx cypress open` command will open the Cypress application as below:
 ### Prerequisites
 
 1. Project must be extracted or cloned locally.
-2. Node.js must be installed. See [How to install Node.js](https://nodejs.dev/learn/how-to-install-nodejs).
-3. Node Modules must be installed by running `npm install`.
-4. [Docker must be installed](https://docs.docker.com/engine/install/) and running.
+### Installation
+Installers have been provided for both Mac and Linux. Due to "resource" constraints (an eight day old daughter) only the Mac version is tested. If using Windows, [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) must be installed and configured to run Ubuntu, and then the Linux installer can *theoretically* be used.
+
+- Mac: `./install-mac.sh`
+- Linux/Windows WSL: `./install-linux.sh`
+
+Should either installer not work, the following steps can be followed for manual installation:
+1. Install Node.js. See [How to install Node.js](https://nodejs.dev/learn/how-to-install-nodejs).
+3. Install Node Modules by running `npm install`.
+4. [Install Docker](https://docs.docker.com/engine/install/) and run it.
 ### Execution
 From the Terminal, execute the run script `./cy-run.sh`. This script supports [all Cypress options](https://docs.cypress.io/guides/guides/command-line#cypress-run) such as `--headed` and `--browser`, amongst others.
 ### Results
