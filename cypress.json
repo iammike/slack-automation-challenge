@@ -1,5 +1,14 @@
 {
-  "viewportWidth": 1083,
-  "viewportHeight": 800,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "watchForFileChanges": false,
+  "baseUrl": "https://app.slack.com/client",
+  "env": {
+    "userToken": "xoxd-VEOQ16EQYUocBvu6DUqED7bUw1hiWbdjhfJoVnRBMtu4GKP%2F6SeMzz7GHjINHTRKdrJj%2Bi6BT5DjUo7yRvkv9wA9Q069Rt0mm5kAzrxqm9u7Kqk01J6G2faD4vcg6QEhHoskpk7tyf5CX6B5QmS97tUtLqhFelVKj%2FG4qhyGVm%2FATdiX2iQxx2liUg%3D%3D",
+    "apiToken": "xoxp-3320964362576-3297204678322-3322654353552-9be79074aba61b1dc1373fca7cda33ae",
+    "apiBase": "https://mike-cypress-test.slack.com/api",
+    "workspacePath": "/T039EUCANGY",
+    "workspaceName": "mike-cypress-test",
+    "username": "iammikec@gmail.com",
+    "password": "mjcTestPassword"
+  }
 }
