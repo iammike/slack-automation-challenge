@@ -1,5 +1,19 @@
 #!/bin/bash
 
+usage() {
+    echo "usage: $0 [-i|--install] [-r|--run] [-l|--log] [*]"
+    echo "  -i or --install      install prerequisites"
+    echo "  -r or --run          run test suite in docker"
+    echo "  -l or --log          open html test report"
+    echo "  *                    any remaining options to be passed to the cypress executable"
+    exit 0
+}
+
+if [ "$#" -eq 0 ]; then
+    echo "WARNING: At least one argument must be provided"
+    usage
+fi
+
 # Basis of this script found at https://stackoverflow.com/a/14203146/2533443
 
 POSITIONAL_ARGS=()
@@ -12,8 +26,6 @@ while [[ $# -gt 0 ]]; do
         ;;
       -i|--install)
         INSTALL=true
-        OS=$2
-        shift
         shift
         ;;
       -r|--run)
@@ -32,31 +44,31 @@ while [[ $# -gt 0 ]]; do
 done
 set -- "${POSITIONAL_ARGS[@]}"
 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     OS=linux;;
+    Darwin*)    OS=mac;;
+esac
+
 if [ "$HELP" = true ]; then
-    echo "usage: $0 [-i|--install operating_system] [-r|--run] [-l|--log] [*]"
-    echo "  -i or --install os     install prerequisites for specified operating system ('mac' or 'linux', case sensitive)"
-    echo "  -r or --run            run test suite in docker"
-    echo "  -l or --log            open HTML log following test execution"
-    echo "  *                      any remaining options to be passed to the cypress executable"
-    exit 0
+    usage
 fi
 
 if [ "$INSTALL" = true ]; then
     if [ "$OS" = mac ]; then
-        ./install-mac.sh
+        ./scripts/install-mac.sh
     elif [ "$OS" = linux ]; then
-        ./install-linux.sh
+        ./scripts/install-linux.sh
     else
-        echo "USAGE ERROR: Operating system must be 'mac' or 'linux' (case sensitive)"
+        echo "ERROR: Unknown operating system, please manually run correct install script from ./scripts"
         exit 0
     fi
 fi
 
 if [ "$RUN" = true ]; then
-    echo $@
-    if [ "$OPENLOGS" = true ]; then
-        ./cy-run-and-open-results.sh $@
-    else
-        ./cy-run.sh $@
-    fi
+    ./scripts/runner.sh $@
+fi
+
+if [ "$OPENLOGS" = true ]; then
+    open mochawesome-report/mochawesome.html
 fi

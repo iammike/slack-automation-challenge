@@ -90,11 +90,12 @@ Cypress.Commands.add('submitMessage', (text) => {
   // third-party library that adds native events (https://github.com/dmtrKovalenko/cypress-real-events). To me, a third party
   // library is barely a step above an explicit wait because they may lose support, or may do things oddly, which was the 
   // case here; I was seeing phantom hovers on my search results, and that didn't sit well. Given this is an exceptionally
-  // short wait, I opted for using it rather than introducing complexity.
+  // short wait (edit: it was reliably 100ms, but just as I was about to submit this project it became unreliable), I opted
+  // for using it rather than introducing complexity.
   //
   // This appears to be a major issue for Cypress https://github.com/cypress-io/cypress/issues/7306. I tried many of the
   // solutions here with mixed, but generally poor results.
-  cy.wait(100)
+  cy.wait(500)
 })
 
 // Waits for the search API to confirm a given text will return results
