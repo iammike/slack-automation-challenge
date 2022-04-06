@@ -47,7 +47,7 @@ Cypress.Commands.add('loginManually', () => {
 
   // Wait for things to load so we do not risk timing out following command
   cy.intercept('POST', '*conversations.genericInfo*').as('receiveConvos')
-  cy.wait('@receiveConvos', { requestTimeout: 15000 })
+  cy.wait('@receiveConvos', { requestTimeout: 30000 })
 })
 
 // Token does need to be refreshed every year so ultimately a solution such as Auth0 might be preferrable
@@ -57,7 +57,7 @@ Cypress.Commands.add('loginWithToken', () => {
 
   // Wait for things to load so we do not risk timing out following command
   cy.intercept('POST', '*conversations.genericInfo*').as('receiveConvos')
-  cy.wait('@receiveConvos', { requestTimeout: 15000 })
+  cy.wait('@receiveConvos', { requestTimeout: 30000 })
 })
 
 Cypress.Commands.add('saveMessageContaining', (text) => {
