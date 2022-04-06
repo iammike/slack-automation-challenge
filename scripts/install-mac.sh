@@ -12,5 +12,5 @@ npm install
 echo "Installing Docker..."
 brew install --cask docker
 
-echo "Opening Docker (will require user interaction)..."
+echo "Opening Docker (may require user interaction)..."
 open /Applications/Docker.app
