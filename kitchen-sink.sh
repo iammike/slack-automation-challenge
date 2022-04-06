@@ -32,18 +32,12 @@ while [[ $# -gt 0 ]]; do
 done
 set -- "${POSITIONAL_ARGS[@]}"
 
-echo "Install: $INSTALL"
-echo "Operating System: $OS"
-echo "Run: $RUN"
-echo "Open Logs: $OPENLOGS"
-echo "Cypress: $@"
-
 if [ "$HELP" = true ]; then
     echo "usage: $0 [-i|--install operating_system] [-r|--run] [-l|--log] [*]"
-    echo "  -i or --install operating_system     install prerequisites for specified operating system ('mac' or 'linux', case sensitive)"
-    echo "  -r or --run                          run test suite in docker"
-    echo "  -l or --log                          open HTML log following test execution"
-    echo "  *                                    any remaining options to be passed to the cypress executable"
+    echo "  -i or --install os     install prerequisites for specified operating system ('mac' or 'linux', case sensitive)"
+    echo "  -r or --run            run test suite in docker"
+    echo "  -l or --log            open HTML log following test execution"
+    echo "  *                      any remaining options to be passed to the cypress executable"
     exit 0
 fi
 
@@ -59,6 +53,7 @@ if [ "$INSTALL" = true ]; then
 fi
 
 if [ "$RUN" = true ]; then
+    echo $@
     if [ "$OPENLOGS" = true ]; then
         ./cy-run-and-open-results.sh $@
     else
