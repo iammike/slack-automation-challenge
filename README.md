@@ -1,7 +1,9 @@
 # MJC's Slack Take Home Exercise - Automation Engineer
 This project satifies the requirements of the of the Slack Coding Exercise. Terminology used assumes a non-Windows operating system (Mac, specifically), but all intructions should loosely apply to any configuration.
+
 ## Notes
 I have used extensive commenting in the source files. I typically do not comment this much or check in code not being used, but wanted to show as much of my thought process and work as possible.
+
 ## Part One - Browser Automation
 [Cypress](https://www.cypress.io) was the chosen framework for validating the creation of a new message in Slack, saving it, verifying its existence in the **Saved items** list, searching for all saved items, and verifying its existence in those search results.
 
@@ -33,6 +35,7 @@ The `npx cypress open` command will open the Cypress application as below:
 
 ### Prerequisites
 1. Project must be extracted or cloned locally, and user must be in project directory.
+
 ### Installation
 Installers have been provided for both Mac and Linux. Due to "resource" constraints (an eight day old daughter) only the Mac version is tested. If using Windows, [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install) must be installed and configured to run Ubuntu, and then the Linux installer can *theoretically* be used.
 
@@ -40,9 +43,10 @@ Installers have been provided for both Mac and Linux. Due to "resource" constrai
 - Linux/Windows WSL: `./install-linux.sh`
 
 Should either installer not work, the following steps can be followed for manual installation:
+
 1. Install Node.js. See [How to install Node.js](https://nodejs.dev/learn/how-to-install-nodejs).
-3. Install Node Modules by running `npm install`.
-4. [Install Docker](https://docs.docker.com/engine/install/) and run it.
+2. Install Node Modules by running `npm install`.
+3. [Install Docker](https://docs.docker.com/engine/install/) and run it.
 
 ### Execution
 From the Terminal, execute the run script `./cy-run.sh`. This script supports [all Cypress options](https://docs.cypress.io/guides/guides/command-line#cypress-run) such as `--headed` and `--browser`, amongst others.
