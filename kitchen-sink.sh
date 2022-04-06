@@ -1,7 +1,8 @@
 #!/bin/bash
 
 usage() {
-    echo "usage: $0 [-i|--install] [-r|--run] [-l|--log] [*]"
+    echo "usage: $0 [-h|--help] [-i|--install] [-r|--run] [-l|--log] [*]"
+    echo "  -h or --help         prints this documentation and halts further execution"
     echo "  -i or --install      install prerequisites"
     echo "  -r or --run          run test suite in docker"
     echo "  -l or --log          open html test report"
